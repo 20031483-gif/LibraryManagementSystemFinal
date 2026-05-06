@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<section class="hero-section">
+    <h1>Library Management System</h1>
+
+    <p>
+        Welcome to our online Library Management System. This platform allows library members
+        to browse books, borrow books, reserve books, and manage their reading activities.
+        Library administrators can manage books, borrowing records, feedback, and library reports.
+    </p>
+
+    <div class="hero-buttons">
+        @Html.ActionLink("View Books", "Index", "Books", null, new { @class = "btn-primary" })
+        @Html.ActionLink("Borrow Book", "Index", "Borrow", null, new { @class = "btn-secondary" })
+        @Html.ActionLink("Give Feedback", "Index", "Feedback", null, new { @class = "btn-secondary" })
+        @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn-primary" })
+    </div>
+</section>
+
+<section class="group-section">
+    <h2>Group Details</h2>
+
+    <table class="group-table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Full Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>20033535</td>
+                <td>Karan Kumar Shah</td>
+            </tr>
+
+            <tr>
+                <td>20032376</td>
+                <td>Mr Sachin GURUNG</td>
+            </tr>
+
+            <tr>
+                <td>20033374</td>
+                <td>Mr Sanjiv KARKI</td>
+            </tr>
+
+            <tr>
+                <td>20028707</td>
+                <td>Miss Anju SIWA</td>
+            </tr>
+
+            <tr>
+                <td>20031483</td>
+                <td>Mr Riyan MAHARJAN</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="features-section">
+    <h2>Library Features</h2>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Available Books</h3>
+            <p>Members can browse available books with title, author, genre, ISBN and availability status.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Most Borrowed Books</h3>
+            <p>The system can display popular books based on borrowing records.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>New Arrivals</h3>
+            <p>Newly added books can be shown on the homepage for members.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Library Services</h3>
+            <p>Users can access borrowing, reservations, feedback, login and registration services.</p>
+        </div>
+    </div>
+</section>

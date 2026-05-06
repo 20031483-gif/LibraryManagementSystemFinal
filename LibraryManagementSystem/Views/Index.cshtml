@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Feedback";
+}
+
+<section class="page-section">
+    <h1>Book Feedback</h1>
+
+    <p>
+        Members can leave feedback or ratings for books they have read.
+    </p>
+
+    <form class="form-box">
+        <label>Member Name</label>
+        <input type="text" placeholder="Enter member name" />
+
+        <label>Book Title</label>
+        <input type="text" placeholder="Enter book title" />
+
+        <label>Rating</label>
+        <select>
+            <option>5 - Excellent</option>
+            <option>4 - Very Good</option>
+            <option>3 - Good</option>
+            <option>2 - Fair</option>
+            <option>1 - Poor</option>
+        </select>
+
+        <label>Feedback</label>
+        <textarea placeholder="Write your feedback"></textarea>
+
+        <button type="submit" class="btn-primary">Submit Feedback</button>
+    </form>
+</section>
