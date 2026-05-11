@@ -1,1 +1,29 @@
-﻿<h2>Librarian Dashboard</h2>
+﻿@{
+    ViewBag.Title = "Librarian Dashboard";
+}
+
+<h2>Librarian Dashboard</h2>
+
+<hr />
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <a href="/Books">Manage Books</a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Borrow">View Transactions</a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Feedback">Manage Feedback</a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Librarian/ManageLibraryInfo">Manage Library Info</a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Librarian/BorrowingRules">Borrowing Rules</a>
+    </li>
+</ul>
