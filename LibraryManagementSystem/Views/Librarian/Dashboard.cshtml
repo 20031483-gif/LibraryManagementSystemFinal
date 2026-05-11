@@ -2,28 +2,37 @@
     ViewBag.Title = "Librarian Dashboard";
 }
 
-<h2>Librarian Dashboard</h2>
+<div class="page-section">
 
-<hr />
+    <h1>Librarian Dashboard</h1>
 
-<ul class="list-group">
-    <li class="list-group-item">
-        <a href="/Books">Manage Books</a>
-    </li>
+    <p>
+        Welcome to the admin panel. Use the options below
+        to manage the library system.
+    </p>
 
-    <li class="list-group-item">
-        <a href="/Borrow">View Transactions</a>
-    </li>
+    <div class="admin-grid">
 
-    <li class="list-group-item">
-        <a href="/Feedback">Manage Feedback</a>
-    </li>
+        <a class="admin-card" href="/Books">
+            Manage Book Records
+        </a>
 
-    <li class="list-group-item">
-        <a href="/Librarian/ManageLibraryInfo">Manage Library Info</a>
-    </li>
+        <a class="admin-card" href="/Librarian/ManageLibraryInfo">
+            Manage Library Profile
+        </a>
 
-    <li class="list-group-item">
-        <a href="/Librarian/BorrowingRules">Borrowing Rules</a>
-    </li>
-</ul>
+        <a class="admin-card" href="/Librarian/BorrowingRules">
+            Configure Borrowing Rules
+        </a>
+
+        <a class="admin-card" href="/Borrow">
+            View Borrowing Transactions
+        </a>
+
+        <a class="admin-card" href="/Feedback">
+            Manage Feedback and Ratings
+        </a>
+
+    </div>
+
+</div>
