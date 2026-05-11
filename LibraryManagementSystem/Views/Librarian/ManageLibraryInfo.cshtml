@@ -1,10 +1,18 @@
-﻿@{
-    ViewBag.Title = "Manage Library Information";
-}
+﻿<h2>Manage Library Profile</h2>
 
-<h2>Manage Library Information</h2>
+<form>
+    <label>Library Name</label>
+    <input class="form-control" type="text" placeholder="KOI Online Library" />
 
-<p>
-    This page allows librarians to update library details,
-    contact information, and opening hours.
-</p>
+    <label>Location</label>
+    <input class="form-control" type="text" placeholder="Sydney, NSW" />
+
+    <label>Operating Hours</label>
+    <input class="form-control" type="text" placeholder="9:00 AM - 5:00 PM" />
+
+    <label>Contact Email</label>
+    <input class="form-control" type="email" placeholder="library@koi.edu.au" />
+
+    <br />
+    <button class="btn btn-primary">Save Library Info</button>
+</form>

@@ -1,10 +1,18 @@
-﻿@{
-    ViewBag.Title = "Borrowing Rules";
-}
+﻿<h2>Configure Borrowing Rules</h2>
 
-<h2>Borrowing Rules</h2>
+<form>
+    <label>Loan Duration</label>
+    <input class="form-control" type="number" placeholder="14" />
 
-<p>
-    This page allows librarians to manage borrowing duration,
-    late return policies, and borrowing limits.
-</p>
+    <label>Renewal Limit</label>
+    <input class="form-control" type="number" placeholder="2" />
+
+    <label>Overdue Penalty</label>
+    <input class="form-control" type="text" placeholder="$2 per day" />
+
+    <label>Maximum Borrowable Items</label>
+    <input class="form-control" type="number" placeholder="5" />
+
+    <br />
+    <button class="btn btn-primary">Save Rules</button>
+</form>

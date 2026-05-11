@@ -371,3 +371,38 @@ body {
         max-width: 100%;
     }
 }
+/* ===============================
+   Librarian Admin Dashboard
+================================ */
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.admin-card {
+    background-color: #f8faff;
+    border: 1px solid #dbe3f5;
+    padding: 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1f3c88;
+    font-weight: bold;
+    font-size: 17px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+    .admin-card:hover {
+        background-color: #1f3c88;
+        color: white;
+        transform: translateY(-5px);
+    }
+
+@media screen and (max-width: 700px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+}
