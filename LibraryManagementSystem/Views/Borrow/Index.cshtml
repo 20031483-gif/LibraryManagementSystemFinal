@@ -8,14 +8,21 @@
     <p>
         Members can borrow or reserve books online. This page shows a simple borrowing form.
     </p>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Message
+            <br />
+            Book: @ViewBag.BookTitle
+        </div>
+    }
 
-    <form class="form-box">
+    <form class="form-box" method="post">
         <label>Member Name</label>
-        <input type="text" placeholder="Enter member name" />
+        <input type="text" name="memberName" placeholder="Enter member name" />
 
         <label>Book Title</label>
-        <input type="text" placeholder="Enter book title" />
-
+        <input type="text" name="bookTitle" value="@ViewBag.BookTitle" placeholder="Enter book title" />
         <label>Borrow Date</label>
         <input type="date" />
 

@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace LibraryManagementSystem.Controllers
 {
     public class BorrowController : Controller
     {
-        // GET: Borrow
-        public ActionResult Index()
+        public ActionResult Index(string bookTitle)
         {
+            ViewBag.BookTitle = bookTitle;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(string memberName, string bookTitle)
+        {
+            ViewBag.Message = "Borrow request submitted successfully.";
+            ViewBag.BookTitle = bookTitle;
+
             return View();
         }
     }
