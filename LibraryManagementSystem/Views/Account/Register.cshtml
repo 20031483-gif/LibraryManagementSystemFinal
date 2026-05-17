@@ -3,26 +3,50 @@
 }
 
 <section class="page-section">
+
     <h1>Register</h1>
 
-    <p>
-        New library members can create an account using this registration form.
-    </p>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Message
+        </div>
+    }
 
-    <form class="form-box">
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter full name" />
+    <form method="post" class="form-box">
 
-        <label>Email Address</label>
-        <input type="email" placeholder="Enter email address" />
+        <label>Username</label>
+
+        <input type="text"
+               name="username"
+               placeholder="Enter username"
+               required />
+
+        <label>Email</label>
+
+        <input type="email"
+               name="email"
+               placeholder="Enter email"
+               required />
 
         <label>Password</label>
-        <input type="password" placeholder="Enter password" />
+
+        <input type="password"
+               name="password"
+               placeholder="Enter password"
+               required />
 
         <label>Confirm Password</label>
-        <input type="password" placeholder="Confirm password" />
 
-        <button type="submit" class="btn-primary">Register</button>
+        <input type="password"
+               name="confirmPassword"
+               placeholder="Confirm password"
+               required />
+
+        <button type="submit" class="btn-primary">
+            Register
+        </button>
+
     </form>
-</section>
 
+</section>

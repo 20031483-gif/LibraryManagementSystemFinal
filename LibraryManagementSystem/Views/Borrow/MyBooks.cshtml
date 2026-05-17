@@ -1,0 +1,77 @@
+﻿@model List<LibraryManagementSystem.Controllers.BorrowRecord>
+
+@{
+    ViewBag.Title = "My Borrowed Books";
+}
+
+<section class="page-section">
+
+    <h1>My Borrowed Books</h1>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <p>You have not borrowed any books yet.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Borrow Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BookTitle</td>
+                        <td>@item.BorrowDate</td>
+                        <td>@item.ReturnDate</td>
+
+                        <td>
+                            @if (item.Status == "Borrowed")
+                            {
+                                <span class="badge bg-warning">Borrowed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Returned</span>
+                            }
+                        </td>
+
+                        <td>
+                            @if (item.Status == "Borrowed")
+                            {
+                                <a href="/Borrow/ReturnBook?bookTitle=@item.BookTitle"
+                                   class="btn btn-success btn-sm">
+                                    Return
+                                </a>
+                            }
+                            else
+                            {
+                                <button class="btn btn-secondary btn-sm" disabled>
+                                    Returned
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+
+</section>

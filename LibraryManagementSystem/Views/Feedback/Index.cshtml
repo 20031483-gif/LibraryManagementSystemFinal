@@ -3,31 +3,35 @@
 }
 
 <section class="page-section">
-    <h1>Book Feedback</h1>
 
-    <p>
-        Members can leave feedback or ratings for books they have read.
-    </p>
+    <h1>Feedback</h1>
 
-    <form class="form-box">
+    @if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Success
+        </div>
+    }
+
+    <form method="post" class="form-box">
+
         <label>Member Name</label>
-        <input type="text" placeholder="Enter member name" />
 
-        <label>Book Title</label>
-        <input type="text" placeholder="Enter book title" />
+        <input type="text"
+               name="memberName"
+               value="@ViewBag.MemberName"
+               readonly />
 
-        <label>Rating</label>
-        <select>
-            <option>5 - Excellent</option>
-            <option>4 - Very Good</option>
-            <option>3 - Good</option>
-            <option>2 - Fair</option>
-            <option>1 - Poor</option>
-        </select>
+        <label>Feedback Message</label>
 
-        <label>Feedback</label>
-        <textarea placeholder="Write your feedback"></textarea>
+        <textarea name="message"
+                  placeholder="Enter your feedback"
+                  required></textarea>
 
-        <button type="submit" class="btn-primary">Submit Feedback</button>
+        <button type="submit" class="btn-primary">
+            Submit Feedback
+        </button>
+
     </form>
+
 </section>

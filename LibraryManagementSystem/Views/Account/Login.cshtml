@@ -3,19 +3,36 @@
 }
 
 <section class="page-section">
+
     <h1>Login</h1>
 
-    <p>
-        Library administrators and members can login to access their account.
-    </p>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Message
+        </div>
+    }
 
-    <form class="form-box">
-        <label>Email Address</label>
-        <input type="email" placeholder="Enter email address" />
+    <form method="post" class="form-box">
+
+        <label>Username</label>
+
+        <input type="text"
+               name="username"
+               placeholder="Enter username"
+               required />
 
         <label>Password</label>
-        <input type="password" placeholder="Enter password" />
 
-        <button type="submit" class="btn-primary">Login</button>
+        <input type="password"
+               name="password"
+               placeholder="Enter password"
+               required />
+
+        <button type="submit" class="btn-primary">
+            Login
+        </button>
+
     </form>
+
 </section>

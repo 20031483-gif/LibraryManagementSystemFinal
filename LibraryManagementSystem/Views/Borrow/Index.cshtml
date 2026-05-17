@@ -1,35 +1,39 @@
 ﻿@{
-    ViewBag.Title = "Borrow";
+    ViewBag.Title = "Borrow Book";
 }
 
 <section class="page-section">
+
     <h1>Borrow Book</h1>
 
-    <p>
-        Members can borrow or reserve books online. This page shows a simple borrowing form.
-    </p>
     @if (ViewBag.Message != null)
     {
         <div class="alert alert-success">
-            @ViewBag.Message
-            <br />
+            @ViewBag.Message <br />
             Book: @ViewBag.BookTitle
         </div>
     }
 
-    <form class="form-box" method="post">
+    <form method="post" class="form-box">
+
         <label>Member Name</label>
-        <input type="text" name="memberName" placeholder="Enter member name" />
+
+        <input type="text"
+               name="memberName"
+               value="@ViewBag.MemberName"
+               readonly />
 
         <label>Book Title</label>
-        <input type="text" name="bookTitle" value="@ViewBag.BookTitle" placeholder="Enter book title" />
-        <label>Borrow Date</label>
-        <input type="date" />
 
-        <label>Return Date</label>
-        <input type="date" />
+        <input type="text"
+               name="bookTitle"
+               value="@ViewBag.BookTitle"
+               readonly />
 
-        <button type="submit" class="btn-primary">Submit Borrow Request</button>
+        <button type="submit" class="btn-primary">
+            Submit Borrow Request
+        </button>
+
     </form>
-</section>
 
+</section>

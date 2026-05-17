@@ -1,17 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>@ViewBag.Title - Library Management System</title>
 
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/Site.css" />
+
 </head>
 
 <body>
+
+    <!-- NAVBAR -->
     <nav class="navbar">
+
         <div class="navbar-container">
 
             <div class="logo">
@@ -19,31 +24,83 @@
             </div>
 
             <ul class="nav-links">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Books", "Index", "Books")</li>
-                <li>@Html.ActionLink("Borrow", "Index", "Borrow")</li>
-                <li>@Html.ActionLink("Feedback", "Index", "Feedback")</li>
 
-                <li>@Html.ActionLink("Librarian", "Dashboard", "Librarian")</li>
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
 
-                <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                <li>
+                    @Html.ActionLink("Books", "Index", "Books")
+                </li>
+
+                <li>
+                    @Html.ActionLink("Borrow", "Index", "Borrow")
+                </li>
+
+                <li>
+                    @Html.ActionLink("Feedback", "Index", "Feedback")
+                </li>
+
+                <li>
+                    @Html.ActionLink("Librarian", "Dashboard", "Librarian")
+                </li>
+
+                @if (Session["User"] != null)
+                {
+                    <li>
+                        <a href="#">
+                            Welcome @Session["User"]
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Borrow/MyBooks">
+                            My Borrowed Books
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Account/Logout">
+                            Logout
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="/Account/Login">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Account/Register">
+                            Register
+                        </a>
+                    </li>
+                }
+
             </ul>
 
         </div>
+
     </nav>
 
+    <!-- PAGE CONTENT -->
     <main class="main-content">
+
         @RenderBody()
+
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 Library Management System | ICT272 Web Design and Development</p>
-    </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <p>
+            © 2026 Library Management System | ICT272 Web Design and Development
+        </p>
+
+    </footer>
 
 </body>
 </html>

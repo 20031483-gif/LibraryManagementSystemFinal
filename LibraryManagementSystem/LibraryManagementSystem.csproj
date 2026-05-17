@@ -188,6 +188,7 @@
     <Content Include="Views\Librarian\Dashboard.cshtml" />
     <Content Include="Views\Librarian\ManageLibraryInfo.cshtml" />
     <Content Include="Views\Librarian\BorrowingRules.cshtml" />
+    <Content Include="Views\Borrow\MyBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
