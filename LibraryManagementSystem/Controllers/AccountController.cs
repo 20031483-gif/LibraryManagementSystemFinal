@@ -8,7 +8,13 @@ namespace LibraryManagementSystem.Controllers
     {
         private static List<UserAccount> users = new List<UserAccount>
         {
-            new UserAccount { Username = "admin", Email = "admin@library.com", Password = "1234" }
+            new UserAccount
+            {
+                Username = "admin",
+                Email = "admin@library.com",
+                Password = "1234",
+                Role = "Librarian"
+            }
         };
 
         public ActionResult Login()
@@ -19,11 +25,20 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var user = users.FirstOrDefault(u =>
+                u.Username == username &&
+                u.Password == password);
 
             if (user != null)
             {
                 Session["User"] = user.Username;
+                Session["Role"] = user.Role;
+
+                if (user.Role == "Librarian")
+                {
+                    return RedirectToAction("Dashboard", "Librarian");
+                }
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -39,22 +54,9 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public ActionResult Register(string username, string email, string password, string confirmPassword)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
-            {
-                ViewBag.Message = "Please fill all fields.";
-                return View();
-            }
-
             if (password != confirmPassword)
             {
                 ViewBag.Message = "Passwords do not match.";
-                return View();
-            }
-
-            if (users.Any(u => u.Username == username))
-            {
-                ViewBag.Message = "Username already exists.";
                 return View();
             }
 
@@ -62,7 +64,8 @@ namespace LibraryManagementSystem.Controllers
             {
                 Username = username,
                 Email = email,
-                Password = password
+                Password = password,
+                Role = "Member"
             });
 
             ViewBag.Message = "Registration completed successfully!";
@@ -81,5 +84,6 @@ namespace LibraryManagementSystem.Controllers
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
     }
 }

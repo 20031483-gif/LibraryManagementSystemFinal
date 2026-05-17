@@ -3,75 +3,114 @@
 }
 
 <section class="page-section">
+
     <h1>Books</h1>
 
     <p>
-        This page displays the list of books available in the library system.
-        Members can browse books and check their availability.
+        Browse available books in the library system.
     </p>
 
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Book Title</th>
-                <th>Author</th>
-                <th>Genre</th>
-                <th>ISBN</th>
-                <th>Status</th>
-            </tr>
-        </thead>
+    <div class="book-container">
 
-        <tbody>
-            <tr>
-                <td>Introduction to Web Design</td>
-                <td>John Smith</td>
-                <td>Technology</td>
-                <td>978-1111111111</td>
-                <td>Available</td>
-                <td>
-                    <a href="/Borrow/Index?bookTitle=Introduction to Web Design" class="btn btn-primary btn-sm">
-                        Borrow
-                    </a>
-                </td>
-            </tr>
+        <!-- BOOK 1 -->
+        <div class="book-card">
 
-            <tr>
-                <td>Database Systems</td>
-                <td>Mary Brown</td>
-                <td>Information Technology</td>
-                <td>978-2222222222</td>
-                <td>Borrowed</td>
-                <td>
-                    <button class="btn btn-secondary btn-sm" disabled>
-                        Borrowed
-                    </button>
-                </td>
-<tr>
-                <td>Database System</td>
-                <td>MaryBrown</td>
-                <td>Information Technology</td>
-                <td>978-2222222222</td>
-                <td>Borrowed</td>
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81WcnNQ-TBL.jpg"
+                 class="book-image" />
 
-                <td>
-                    <button class="btn btn-secondary btn-sm" disabled>
-                        Borrowed
-                    </button>
-                </td>
-            </tr>
+            <h3>Introduction to Web Design</h3>
 
-            <tr>
-                <td>Software Engineering Basics</td>
-                <td>David Lee</td>
-                <td>Software</td>
-                <td>978-3333333333</td>
-                <td>Available</td>
-                <td>
-                    <a href="/Borrow/Index?bookTitle=Software Engineering Basics" class="btn btn-primary btn-sm">
-                        Borrow
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            <p>
+                <strong>Author:</strong> John Smith
+            </p>
+
+            <p>
+                <span class="status available">
+                    Available
+                </span>
+            </p>
+
+            <a href="/Borrow/Index?bookTitle=Introduction%20to%20Web%20Design"
+               class="btn-primary">
+                Borrow
+            </a>
+
+        </div>
+
+        <!-- BOOK 2 -->
+        <div class="book-card">
+
+            <img src="https://images-na.ssl-images-amazon.com/images/I/91asIC1fRwL.jpg"
+                 class="book-image" />
+
+            <h3>Database Systems</h3>
+
+            <p>
+                <strong>Author:</strong> Mary Brown
+            </p>
+
+            <p>
+                <span class="status borrowed">
+                    Borrowed
+                </span>
+            </p>
+
+            <button class="btn-disabled">
+                Borrowed
+            </button>
+
+        </div>
+
+        <!-- BOOK 3 -->
+        <div class="book-card">
+
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81kqrwS1nNL.jpg"
+                 class="book-image" />
+
+            <h3>Software Engineering Basics</h3>
+
+            <p>
+                <strong>Author:</strong> David Lee
+            </p>
+
+            <p>
+                <span class="status available">
+                    Available
+                </span>
+            </p>
+
+            <a href="/Borrow/Index?bookTitle=Software%20Engineering%20Basics"
+               class="btn-primary">
+                Borrow
+            </a>
+
+        </div>
+
+        <!-- BOOK 4 -->
+        <div class="book-card">
+
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71dNsRuYL7L.jpg"
+                 class="book-image" />
+
+            <h3>Computer Networking</h3>
+
+            <p>
+                <strong>Author:</strong> Alex Johnson
+            </p>
+
+            <p>
+                <span class="status available">
+                    Available
+                </span>
+            </p>
+
+            <a href="/Borrow/Index?bookTitle=Computer%20Networking"
+               class="btn-primary">
+                Borrow
+            </a>
+
+        </div>
+
+    </div>
+
 </section>

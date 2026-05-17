@@ -2,37 +2,127 @@
     ViewBag.Title = "Librarian Dashboard";
 }
 
-<div class="page-section">
+<section class="page-section">
 
     <h1>Librarian Dashboard</h1>
 
     <p>
-        Welcome to the admin panel. Use the options below
-        to manage the library system.
+        Welcome, @Session["User"].
+        This is the librarian/admin dashboard.
     </p>
 
-    <div class="admin-grid">
+    <div class="book-container">
 
-        <a class="admin-card" href="/Books">
-            Manage Book Records
-        </a>
+        <div class="book-card">
 
-        <a class="admin-card" href="/Librarian/ManageLibraryInfo">
-            Manage Library Profile
-        </a>
+            <h3>Total Books</h3>
 
-        <a class="admin-card" href="/Librarian/BorrowingRules">
-            Configure Borrowing Rules
-        </a>
+            <p style="font-size: 32px;">
+                12
+            </p>
 
-        <a class="admin-card" href="/Borrow">
-            View Borrowing Transactions
-        </a>
+        </div>
 
-        <a class="admin-card" href="/Feedback">
-            Manage Feedback and Ratings
-        </a>
+        <div class="book-card">
+
+            <h3>Borrowed Books</h3>
+
+            <p style="font-size: 32px;">
+                4
+            </p>
+
+        </div>
+
+        <div class="book-card">
+
+            <h3>Returned Books</h3>
+
+            <p style="font-size: 32px;">
+                3
+            </p>
+
+        </div>
+
+        <div class="book-card">
+
+            <h3>Registered Members</h3>
+
+            <p style="font-size: 32px;">
+                8
+            </p>
+
+        </div>
 
     </div>
 
-</div>
+    <h2>Admin Actions</h2>
+
+    <div class="book-container">
+
+        <!-- MANAGE BOOKS -->
+        <div class="book-card">
+
+            <h3>Manage Books</h3>
+
+            <p>
+                Add, update or remove books from the library.
+            </p>
+
+            <a href="/Books/Index"
+               class="btn-primary">
+                View Books
+            </a>
+
+        </div>
+
+        <!-- BORROW RECORDS -->
+        <div class="book-card">
+
+            <h3>Borrow Records</h3>
+
+            <p>
+                View borrowed and returned books.
+            </p>
+
+            <a href="/Borrow/MyBooks"
+               class="btn-primary">
+                View Records
+            </a>
+
+        </div>
+
+        <!-- REVIEW FEEDBACK -->
+        <div class="book-card">
+
+            <h3>Review Feedback</h3>
+
+            <p>
+                View feedback submitted by members.
+            </p>
+
+            <a href="/Feedback/Review"
+               class="btn-primary">
+                Review Feedback
+            </a>
+
+        </div>
+
+        <!-- SUBMIT FEEDBACK -->
+        <div class="book-card">
+
+            <h3>Submit Feedback</h3>
+
+            <p>
+                Submit admin or librarian feedback.
+            </p>
+
+            <a href="/Feedback/Index"
+               class="btn-primary">
+                Submit Feedback
+            </a>
+
+        </div>
+
+    </div>
+
+</section>

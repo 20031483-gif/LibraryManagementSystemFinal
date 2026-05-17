@@ -21,57 +21,83 @@
     }
     else
     {
-        <table class="table table-bordered">
+        <div class="book-container">
 
-            <thead>
-                <tr>
-                    <th>Book Title</th>
-                    <th>Borrow Date</th>
-                    <th>Return Date</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+            @foreach (var item in Model)
+            {
+                <div class="book-card">
 
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.BookTitle</td>
-                        <td>@item.BorrowDate</td>
-                        <td>@item.ReturnDate</td>
+                    @if (item.BookTitle == "Introduction to Web Design")
+                    {
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81WcnNQ-TBL.jpg"
+                             class="book-image" />
+                    }
 
-                        <td>
-                            @if (item.Status == "Borrowed")
-                            {
-                                <span class="badge bg-warning">Borrowed</span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-success">Returned</span>
-                            }
-                        </td>
+                    else if (item.BookTitle == "Software Engineering Basics")
+                    {
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81kqrwS1nNL.jpg"
+                             class="book-image" />
+                    }
 
-                        <td>
-                            @if (item.Status == "Borrowed")
-                            {
-                                <a href="/Borrow/ReturnBook?bookTitle=@item.BookTitle"
-                                   class="btn btn-success btn-sm">
-                                    Return
-                                </a>
-                            }
-                            else
-                            {
-                                <button class="btn btn-secondary btn-sm" disabled>
-                                    Returned
-                                </button>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
+                    else if (item.BookTitle == "Computer Networking")
+                    {
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71dNsRuYL7L.jpg"
+                             class="book-image" />
+                    }
 
-        </table>
+                    else
+                    {
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/91asIC1fRwL.jpg"
+                             class="book-image" />
+                    }
+
+                    <h3>@item.BookTitle</h3>
+
+                    <p>
+                        <strong>Borrow Date:</strong>
+                        @item.BorrowDate
+                    </p>
+
+                    <p>
+                        <strong>Return Date:</strong>
+                        @item.ReturnDate
+                    </p>
+
+                    <p>
+
+                        @if (item.Status == "Borrowed")
+                        {
+                            <span class="status borrowed">
+                                Borrowed
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="status available">
+                                Returned
+                            </span>
+                        }
+
+                    </p>
+
+                    @if (item.Status == "Borrowed")
+                    {
+                        <a href="/Borrow/ReturnBook?bookTitle=@item.BookTitle"
+                           class="btn-primary">
+                            Return Book
+                        </a>
+                    }
+                    else
+                    {
+                        <button class="btn-disabled">
+                            Returned
+                        </button>
+                    }
+
+                </div>
+            }
+
+        </div>
     }
 
 </section>

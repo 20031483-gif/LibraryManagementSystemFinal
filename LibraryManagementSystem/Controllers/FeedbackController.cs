@@ -1,10 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace LibraryManagementSystem.Controllers
 {
     public class FeedbackController : Controller
     {
-        // FEEDBACK PAGE
+        private static List<FeedbackRecord> feedbackList = new List<FeedbackRecord>();
+
         public ActionResult Index()
         {
             if (Session["User"] == null)
@@ -13,11 +15,9 @@ namespace LibraryManagementSystem.Controllers
             }
 
             ViewBag.MemberName = Session["User"].ToString();
-
             return View();
         }
 
-        // FEEDBACK SUBMIT
         [HttpPost]
         public ActionResult Index(string memberName, string message)
         {
@@ -26,10 +26,37 @@ namespace LibraryManagementSystem.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
+            feedbackList.Add(new FeedbackRecord
+            {
+                MemberName = Session["User"].ToString(),
+                Message = message
+            });
+
             ViewBag.MemberName = Session["User"].ToString();
             ViewBag.Success = "Feedback submitted successfully.";
 
             return View();
         }
+
+        public ActionResult Review()
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (Session["Role"] == null || Session["Role"].ToString() != "Librarian")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(feedbackList);
+        }
+    }
+
+    public class FeedbackRecord
+    {
+        public string MemberName { get; set; }
+        public string Message { get; set; }
     }
 }

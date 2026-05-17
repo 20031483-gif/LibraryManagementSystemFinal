@@ -6,16 +6,16 @@ namespace LibraryManagementSystem.Controllers
     {
         public ActionResult Dashboard()
         {
-            return View();
-        }
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
-        public ActionResult ManageLibraryInfo()
-        {
-            return View();
-        }
+            if (Session["Role"] == null || Session["Role"].ToString() != "Librarian")
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-        public ActionResult BorrowingRules()
-        {
             return View();
         }
     }

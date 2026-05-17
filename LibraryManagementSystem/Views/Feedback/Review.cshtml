@@ -1,0 +1,39 @@
+﻿@model List<LibraryManagementSystem.Controllers.FeedbackRecord>
+
+@{
+    ViewBag.Title = "Review Feedback";
+}
+
+<section class="page-section">
+
+    <h1>Review Feedback</h1>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <p>No feedback submitted yet.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>Member Name</th>
+                    <th>Feedback Message</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MemberName</td>
+                        <td>@item.Message</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+
+</section>
